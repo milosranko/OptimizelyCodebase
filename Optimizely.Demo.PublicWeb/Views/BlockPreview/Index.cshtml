@@ -1,0 +1,13 @@
+﻿@using Optimizely.Demo.Core.Models.ViewModels;
+@model BlockPreviewModel
+@{
+    Layout = "~/Views/Shared/Layouts/_BlockPreviewLayout.cshtml";
+}
+
+@Html.Raw(!String.IsNullOrEmpty(Model.FirstLevelTag) ? "<" + Model.FirstLevelTag + " class='" + Model.FirstLevelCssClass + "'>" : "")
+@Html.Raw(!String.IsNullOrEmpty(Model.SecondLevelTag) ? "<" + Model.SecondLevelTag + " class='" + Model.SecondLevelCssClass + "'>" : "")
+
+@Html.DisplayFor(m => m.ContentArea)
+
+@Html.Raw(!String.IsNullOrEmpty(Model.SecondLevelTag) ? "</" + Model.SecondLevelTag + ">" : "")
+@Html.Raw(!String.IsNullOrEmpty(Model.FirstLevelTag) ? "</" + Model.FirstLevelTag + ">" : "")

@@ -1,0 +1,50 @@
+﻿@using Optimizely.Demo.Core.Models.ViewModels;
+@model IPageViewModel<PageBasePublic>
+
+<!DOCTYPE html>
+<html lang="@Model.CurrentPage.Language.Name" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+        @Model.Layout.PageTitle
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @if (IsSectionDefined("MetaData"))
+    {
+        @RenderSection("MetaData", false)
+    }
+    
+    <link rel="shortcut icon" href="/Static/Img/favicon.ico">
+    <link rel="apple-touch-icon" href="/Static/Img/apple-touch-icon.png">
+    <link rel="icon" href="/Static/Img/touch-icon.png">
+
+    @Html.CanonicalLink()
+    @Html.AlternateLinks()
+
+    @if (IsSectionDefined("Head"))
+    {
+        @RenderSection("Head", false)
+    }
+</head>
+<body>
+    @await Html.RenderEPiServerQuickNavigatorAsync()
+
+    @if (IsSectionDefined("Header"))
+    {
+        @RenderSection("Header", false)
+    }
+
+    <main id="main">
+        @RenderBody()
+    </main>
+
+    @if (IsSectionDefined("Footer"))
+    {
+        @RenderSection("Footer", false)
+    }
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

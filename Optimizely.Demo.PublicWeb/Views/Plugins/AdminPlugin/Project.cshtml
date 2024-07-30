@@ -1,0 +1,51 @@
+﻿@using EPiServer.Framework.Web.Resources
+@using Optimizely.Demo.PublicWeb.Gadgets;
+@model ProjectViewModel
+@{
+    Layout = "~/Views/Shared/Layouts/_ShellLayout.cshtml";
+}
+
+@section Styles
+{
+<style type="text/css">
+    html,
+    body {
+        height: 100%;
+    }
+    body {
+        background-color: #fff;
+    }
+    .container {
+        padding: 16px;
+        border-top: 1px solid #D6D6D6;
+    }
+    .container label {
+        display: block;
+        margin-bottom: 16px;
+    }
+    .container input {
+        margin-left: 8px;
+    }
+    .container span {
+        display: inline-block;
+        width: 100px;
+    }
+    .container h1 {
+        margin-bottom: 32px;
+    }
+</style>
+}
+
+<div>
+    <div class="container">
+        <h1>Project: @Model.Name</h1>
+        <h2>Project status: @Model.Status.ToString()</h2>
+        <div>
+            @foreach (var item in Model.Items)
+            {
+                <div>@(item.ContentLink.Get<IContent>().Name)</div>
+            }
+        </div>
+        <a href="/episerver/cms#context=epi.cms.project:///@Model.Id">Back to project</a>
+    </div>
+</div>

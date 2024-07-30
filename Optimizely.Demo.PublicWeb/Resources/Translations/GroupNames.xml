@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<languages>
+  <language name="English" id="en">
+	  <headings>
+		  <heading name="Default">
+			  <description>Default</description>
+		  </heading>
+		  <heading name="SEO">
+			  <description>SEO</description>
+		  </heading>
+		  <heading name="MetaData">
+			  <description>Meta Data</description>
+		  </heading>
+		  <heading name="SiteSettings">
+			  <description>Site Settings</description>
+		  </heading>
+		  <heading name="Specialized">
+			  <description>Specialized</description>
+		  </heading>
+	  </headings>
+  </language>
+</languages>

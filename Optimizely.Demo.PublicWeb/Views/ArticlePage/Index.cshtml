@@ -1,0 +1,37 @@
+﻿@using Optimizely.Demo.ContentTypes.Pages;
+@using Optimizely.Demo.Core.Models.ViewModels;
+@model IPageViewModel<ArticlePage>
+
+<div class="article-section ffe-grid">
+    <div class="ffe-grid__row">
+        <div class="ffe-grid__col ffe-grid__col--sm-12 ffe-grid__col--md-8 ffe-grid__col--md-offset-2 ffe-grid__col--lg-6 ffe-grid__col--lg-offset-3 ffe-grid__col--no-bottom-padding">
+            <header class="article-header">
+                <p>@Html.PropertyFor(x => x.CurrentPage.Importance)</p>
+
+                @Html.EditableField(x => x.CurrentPage.Heading, "h1")
+
+                @if (!ContentReference.IsNullOrEmpty(Model.CurrentPage.TopImage) || PageHelpers.IsInEditMode())
+                {
+                    <figure class="article-header__figure" @Html.EditAttributes(x => x.CurrentPage.TopImage)>
+                        @Html.EditableField(x => x.CurrentPage.TopImage, "img", new
+                        {
+                            @class = "article-header_figure",
+                            mode = "crop",
+                            srcset = "480x270|800x450|1920x1080",
+                            sizes = "(min-width: 1280px) 600px, (min-width: 1024px) 47vw, (min-width: 768px) 65vw, 100vw"
+                        })
+                    </figure>
+                }
+
+                @Html.EditableField(x => x.CurrentPage.LeadText, "p", new { @class = "lead" })
+            </header>
+        </div>
+    </div>
+    <div class="ffe-grid__row">
+        <div class="ffe-grid__col ffe-grid__col--sm-12 ffe-grid__col--md-8 ffe-grid__col--md-offset-2 ffe-grid__col--lg-6 ffe-grid__col--lg-offset-3">
+            @Html.PropertyFor(x => x.CurrentPage.MainContent)
+        </div>
+    </div>
+</div>
+
+@Html.PropertyFor(x => x.CurrentPage.MainContentArea)

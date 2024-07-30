@@ -1,0 +1,13 @@
+﻿@model Optimizely.Demo.Core.Models.Blocks.Local.LinkBlock
+
+@if (Model.LinkUrl != null && !Model.LinkUrl.IsEmpty())
+{ 
+    <a class="@ViewData["class"]" href="@(Url.ContentUrl(Model.LinkUrl))"
+        @(!String.IsNullOrWhiteSpace(Model.LinkUrl.Host) ? "target=_blank rel=noopener" : "")>
+        <span class="button__label">@(ViewData["CustomLinkText"] ?? Model.LinkText)</span>
+    </a>
+}
+else
+{
+    @Model.LinkText
+}

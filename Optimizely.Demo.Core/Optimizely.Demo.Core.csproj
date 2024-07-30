@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\milos\.nuget\packages\episerver.cms.tinymce\4.7.2\contentFiles\any\any\modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
+    <None Remove="C:\Users\milos\.nuget\packages\episerver.cms.ui.admin\12.29.1\contentFiles\any\any\modules\_protected\EPiServer.Cms.UI.Admin\EPiServer.Cms.UI.Admin.zip" />
+    <None Remove="C:\Users\milos\.nuget\packages\episerver.cms.ui.settings\12.29.1\contentFiles\any\any\modules\_protected\EPiServer.Cms.UI.Settings\EPiServer.Cms.UI.Settings.zip" />
+    <None Remove="C:\Users\milos\.nuget\packages\episerver.cms.ui.visitorgroups\12.29.1\contentFiles\any\any\modules\_protected\EPiServer.Cms.UI.VisitorGroups\EPiServer.Cms.UI.VisitorGroups.zip" />
+    <None Remove="C:\Users\milos\.nuget\packages\episerver.cms.ui\12.29.1\contentFiles\any\any\modules\_protected\CMS\CMS.zip" />
+    <None Remove="C:\Users\milos\.nuget\packages\episerver.cms.ui\12.29.1\contentFiles\any\any\modules\_protected\Shell\Shell.zip" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPiServer.CMS" Version="12.29.1" />
+  </ItemGroup>
+
+</Project>

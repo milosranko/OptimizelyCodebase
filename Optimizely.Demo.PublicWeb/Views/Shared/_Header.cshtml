@@ -1,0 +1,14 @@
+﻿@{
+    HelperResult ItemTemplate(HtmlHelpers.MenuItem item)
+    {
+        <li class="nav-item">
+            @Html.PageLink(item.Page, null, new { @class = "nav-link" + (item.Selected ? " active" : null) })
+        </li>
+        return new HelperResult(w => Task.CompletedTask);
+    }
+}
+
+<header>
+    <p>Page header</p>
+	@Html.MenuList(SiteDefinition.Current.StartPage, ItemTemplate)
+</header>

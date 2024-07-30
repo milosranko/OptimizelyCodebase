@@ -1,0 +1,35 @@
+﻿@using Optimizely.Demo.ContentTypes.Blocks;
+@model TeaserBlock
+
+<section class="teaser-block-wide">
+    <div class="row">
+        <div class="row-wrapper">
+            <div class="col col--middle col--sm-12 col--md-6 col--lg-6">
+                @if (!ContentReference.IsNullOrEmpty(Model.Image) || PageHelpers.IsInEditMode())
+                {
+                    <figure class="teaser-block__figure" @Html.EditAttributes(x => x.Image)>
+                        @Html.EditableField(x => x.Image, "img", new
+                        {
+                            mode = "crop",
+                            srcset = "480x270|800x450|1920x1080",
+                            sizes = "(min-width: 1280px) 620px, (min-width: 1024px) 48vw, (min-width: 768px) 50vw, 100vw"
+                        })
+                    </figure>
+                }
+            </div>
+            <div class="col col--middle col--sm-12 col--md-6 col--lg-6">
+                <div class="teaser-block__text">
+                    @Html.EditableField(x => x.Heading, "h2")
+                    @Html.EditableField(x => x.LeadText, "p", new { @class = "sub-lead" })
+
+                    @if (!Model.LinkButton.IsEmpty || PageHelpers.IsInEditMode())
+                    {
+                        <div class="button-group button-group--thin">
+                            @Html.PropertyFor(x => x.LinkButton, new { @class = "button button--primary" })
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

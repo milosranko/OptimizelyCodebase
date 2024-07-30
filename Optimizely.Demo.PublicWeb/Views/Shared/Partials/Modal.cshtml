@@ -1,0 +1,15 @@
+﻿@using Optimizely.Demo.ContentTypes.Blocks;
+@using Optimizely.Demo.ContentTypes.Pages;
+@model ModalViewModel
+
+<h2>THIS IS MODAL VIEW!!!</h2>
+
+@Html.DisplayFor(x => x.Heading)
+@Html.DisplayFor(x => x.LeadText)
+@Html.DisplayFor(x => x.MainBody)
+@Html.EditableField(x => x.Image, "img", new
+{
+    mode = "crop",
+    srcset = "480x270|800x450|1920x1080",
+    sizes = "(min-width: 1280px) 620px, (min-width: 1024px) 48vw, (min-width: 768px) 50vw, 100vw"
+})

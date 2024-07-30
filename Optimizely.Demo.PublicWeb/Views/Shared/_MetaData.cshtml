@@ -1,0 +1,15 @@
+﻿@using Optimizely.Demo.Core.Models.ViewModels;
+@model LayoutModel
+
+@{
+    if (Model.MetaData.NoRobots)
+    {
+        Html.MetaTag("robots", "noindex");
+    }
+    Html.MetaTag("description", Model.MetaData.Description);
+    Html.OpenGraphTag("og:site_name", Model.SiteName);
+    Html.OpenGraphTag("og:url", Model.OpenGraph.PageUrl);
+    Html.OpenGraphTag("og:title", Model.OpenGraph.Title);
+    Html.OpenGraphTag("og:description", Model.OpenGraph.Description);
+    Html.OpenGraphTag("og:image", Model.OpenGraph.ImageUrl);
+}

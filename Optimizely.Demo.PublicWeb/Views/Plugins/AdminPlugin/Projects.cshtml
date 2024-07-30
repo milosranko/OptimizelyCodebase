@@ -1,0 +1,48 @@
+﻿@using EPiServer.Framework.Web.Resources
+@using Optimizely.Demo.PublicWeb.Gadgets;
+@model IEnumerable<Project>
+@{
+    Layout = "~/Views/Shared/Layouts/_ShellLayout.cshtml";
+}
+
+@section Styles
+{
+<style type="text/css">
+    html,
+    body {
+        height: 100%;
+    }
+    body {
+        background-color: #fff;
+    }
+    .container {
+        padding: 16px;
+        border-top: 1px solid #D6D6D6;
+    }
+    .container label {
+        display: block;
+        margin-bottom: 16px;
+    }
+    .container input {
+        margin-left: 8px;
+    }
+    .container span {
+        display: inline-block;
+        width: 100px;
+    }
+    .container h1 {
+        margin-bottom: 32px;
+    }
+</style>
+}
+
+<div>
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <h1>Project: @item.Name</h1>
+            <h2>Project status: @item.Status.ToString()</h2>
+            <a href="/AdminPlugin/project?id=@item.ID">Open project</a>
+        }
+    </div>
+</div>

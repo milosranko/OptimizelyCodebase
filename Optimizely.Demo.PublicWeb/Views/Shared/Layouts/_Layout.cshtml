@@ -1,0 +1,27 @@
+﻿@using Optimizely.Demo.Core.Models.ViewModels;
+@model IPageViewModel<PageBasePublic>
+@{
+    Layout = "~/Views/Shared/Layouts/_LayoutBase.cshtml";
+}
+
+@section Metadata
+{
+    @{ Html.RenderPartial("_MetaData", Model.Layout); }
+}
+
+@section Header
+{
+    @{ Html.RenderPartial("_Header", Model); }
+}
+
+@RenderBody()
+
+@section Footer
+{
+    @{ Html.RenderPartial("_Footer", Model); }
+}
+
+@section Scripts
+{ 
+    @RenderSection("Scripts", false) 
+}

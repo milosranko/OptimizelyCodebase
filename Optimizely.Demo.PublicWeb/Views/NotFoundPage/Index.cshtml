@@ -1,0 +1,5 @@
+﻿@using Optimizely.Demo.ContentTypes.Pages;
+@using Optimizely.Demo.Core.Models.ViewModels;
+@model IPageViewModel<NotFoundPage>
+
+@Html.EditableField(x => x.CurrentPage.Heading, "h1")

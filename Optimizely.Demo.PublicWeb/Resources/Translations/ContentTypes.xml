@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<languages>
+  <language name="English" id="en">
+	  <contenttypes>
+		  <pagebaseseo>
+			  <properties>
+				  <MetaTitle>
+					  <caption>Meta title</caption>
+					  <help>Helps search engines to index title of this page</help>
+				  </MetaTitle>
+				  <MetaNoRobots>
+					  <caption>Meta no robots</caption>
+					  <help>When enabled, prevents search engines to index this page</help>
+				  </MetaNoRobots>
+				  <MetaDescription>
+					  <caption>Meta description</caption>
+					  <help>Helps search engines to index content of this page</help>
+				  </MetaDescription>
+				  <OpenGraphDescription>
+					  <caption>OG description</caption>
+					  <help>Description text shown when page is shared on social networks</help>
+				  </OpenGraphDescription>
+				  <OpenGraphImage>
+					  <caption>OG image</caption>
+					  <help>Image shown when page is shared on social networks</help>
+				  </OpenGraphImage>
+				  <SitemapSettings>
+					  <caption>Sitemap settings</caption>
+				  </SitemapSettings>
+			  </properties>
+		  </pagebaseseo>
+		  <StartPage>
+			  <description>The home page of the website</description>
+			  <name>Start Page</name>
+			  <properties>
+				  <Heading>
+					  <caption>Heading</caption>
+					  <help>Page heading text</help>
+				  </Heading>
+				  <LeadText>
+					  <caption>Lead text</caption>
+					  <help>Page lead text</help>
+				  </LeadText>
+				  <MainContentArea>
+					  <caption>Main content area</caption>
+					  <help>Place for blocks</help>
+				  </MainContentArea>
+				  <SiteName>
+					  <caption>Site name</caption>
+					  <help>Name of the site shown in browser title and other places</help>
+				  </SiteName>
+			  </properties>
+		  </StartPage>
+		  <SitemapSettingsBlock>
+			  <description>Used for generating sitemap.xml file</description>
+			  <name>Sitemap settings</name>
+			  <properties>
+				  <Exclude>
+					  <caption>Exclude from sitemap</caption>
+					  <help>When enabled, excludes page from showing in sitemap</help>
+				  </Exclude>
+				  <ChangeFrequency>
+					  <caption>Chage frequency</caption>
+					  <help>How often page is changed</help>
+				  </ChangeFrequency>
+				  <Priority>
+					  <caption>Priority</caption>
+					  <help>Priority of page for search engines</help>
+				  </Priority>
+			  </properties>
+		  </SitemapSettingsBlock>
+	  </contenttypes>
+  </language>
+</languages>
