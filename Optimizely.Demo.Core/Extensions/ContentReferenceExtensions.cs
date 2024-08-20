@@ -42,10 +42,8 @@ public static class ContentReferenceExtensions
         if (!ContentReference.IsNullOrEmpty(contentLink))
         {
             var internalUrl = UrlResolver.Current.GetUrl(contentLink);
-
             var url = new UrlBuilder(internalUrl);
             //EPiServer.Url.UrlRewriteProvider.ConvertToExternal(url, null, System.Text.Encoding.UTF8);
-
             var friendlyUrl = UriSupport.AbsoluteUrlBySettings(url.ToString());
 
             return friendlyUrl;

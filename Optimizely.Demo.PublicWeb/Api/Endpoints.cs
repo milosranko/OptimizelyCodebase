@@ -31,7 +31,6 @@ public static class Endpoints
 
     private static IResult Get(IContentLoader contentLoader, IApiService apiService, HttpContext context)
     {
-        //throw new NotImplementedException();
         var subPages = contentLoader
             .GetChildren<PageData>(ContentReference.StartPage, CultureInfo.GetCultureInfo("sr"))
             .Select(x => new SubPage { Name = x.Name });

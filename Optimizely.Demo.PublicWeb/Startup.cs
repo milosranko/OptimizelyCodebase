@@ -66,6 +66,7 @@ public class Startup
             .AddCmsAspNetIdentity<ApplicationUser>()
             .AddCms()
             .AddAdminUserRegistration(options => options.Behavior = RegisterAdminUserBehaviors.LocalRequestsOnly)
+            .AddFind()
             .AddEmbeddedLocalization<Startup>()
             .AddCustomTinyMceConfiguration()
             .AddCmsContentScaffolding()
@@ -93,6 +94,14 @@ public class Startup
         //}
 
         #endregion
+
+        services.AddOutputCache();
+        services.AddSession(options =>
+        {
+            options.IdleTimeout = TimeSpan.FromSeconds(10);
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
+        });
 
         services
             .Configure<DisplayOptions>(displayOption =>
@@ -434,6 +443,7 @@ public class Startup
 
         #endregion
 
+        app.UseOutputCache();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseCors();
