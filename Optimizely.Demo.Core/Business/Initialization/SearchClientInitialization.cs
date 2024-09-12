@@ -21,10 +21,11 @@ public class SearchClientInitialization : IInitializableModule
     {
         SearchClient.Instance.Conventions.UnifiedSearchRegistry
             .ForInstanceOf<PageBasePublic>()
-            .AlwaysApplyFilter(x => x.BuildFilter<PageBasePublic>().And(y => y.IsDeleted.Match(false)));
+            .AlwaysApplyFilter(x => x.BuildFilter<PageBasePublic>().And(y => y.IsDeleted.Match(false)).And(y => y.ExcludeFromSiteSearchResults.Match(false)));
         //.ProjectMetaDataFrom(x => new Dictionary<string, IndexValue> { { nameof(x.SearchCategories), string.Join(",", x.SearchCategories) } });
         SearchClient.Instance.Conventions.ForInstancesOf<ContentArea>().ModifyContract(x => x.Converter = new MaxDepthContentAreaConverter(1));
 
+        ContentIndexer.Instance.Conventions.ForInstancesOf<PageBasePublic>().ShouldIndex(x => !x.ExcludeFromSiteSearchResults);
         ContentIndexer.Instance.Conventions.ShouldIndexInContentAreaConvention = new DefaultShouldIndexInContentAreaConvention();
         ContentIndexer.Instance.Conventions.ForInstancesOf<BlockData>().ShouldIndex(x => true);
         ContentIndexer.Instance.Conventions.ForInstancesOf<IContentMedia>().ShouldIndex(x => false);

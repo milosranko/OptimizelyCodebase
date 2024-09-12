@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EPiServer.CMS" Version="12.29.1" />
-    <PackageReference Include="EPiServer.Find.Cms" Version="16.2.0" />
+    <PackageReference Include="EPiServer.CMS" Version="12.31.2" />
+    <PackageReference Include="EPiServer.Find.Cms" Version="16.3.0" />
   </ItemGroup>
 
 </Project>

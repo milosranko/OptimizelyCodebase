@@ -65,8 +65,8 @@ public class Startup
         services
             .AddCmsAspNetIdentity<ApplicationUser>()
             .AddCms()
-            .AddAdminUserRegistration(options => options.Behavior = RegisterAdminUserBehaviors.LocalRequestsOnly)
             .AddFind()
+            .AddAdminUserRegistration(options => options.Behavior = RegisterAdminUserBehaviors.LocalRequestsOnly)
             .AddEmbeddedLocalization<Startup>()
             .AddCustomTinyMceConfiguration()
             .AddCmsContentScaffolding()

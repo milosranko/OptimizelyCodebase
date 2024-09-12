@@ -16,7 +16,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Optimizely.Demo.ContentTypes.Blocks;
 
-[Access(Roles = $"{Roles.WebAdmins}")]
+[Access(Roles = Roles.WebAdmins)]
 [ContentType(GUID = "{C98C99EA-A630-49CD-8A45-5AEF47EE265D}")]
 [SiteImageUrl("TeaserBlock.png")]
 //[InlineBlockEditSettings(ShowNameProperty = true)]
@@ -175,7 +175,6 @@ public class VisitorGroupsSelectionQuery : ISelectionQuery
                 Value = x.Id
             });
     }
-
 
     public ISelectItem GetItemByValue(string value)
     {

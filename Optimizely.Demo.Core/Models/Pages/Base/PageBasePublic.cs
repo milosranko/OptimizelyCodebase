@@ -1,10 +1,14 @@
-﻿namespace Optimizely.Demo.ContentTypes.Models.Pages.Base;
+﻿using Optimizely.Demo.Core.Models.Pages.Interfaces;
 
-public abstract class PageBasePublic : PageBase
+namespace Optimizely.Demo.ContentTypes.Models.Pages.Base;
+
+public abstract class PageBasePublic : PageBase, ISearchable
 {
-	#region Public properties
+    #region Public properties
 
-	public virtual string BodyCss => string.Empty;
+    public virtual string BodyCss => string.Empty;
 
-	#endregion
+    public virtual bool ExcludeFromSiteSearchResults { get; set; }
+
+    #endregion
 }

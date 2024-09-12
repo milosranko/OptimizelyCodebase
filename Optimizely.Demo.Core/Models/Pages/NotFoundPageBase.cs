@@ -16,6 +16,7 @@ public abstract class NotFoundPageBase : PageBasePublic
         base.SetDefaultValues(contentType);
 
         VisibleInMenu = false;
+        ExcludeFromSiteSearchResults = true;
     }
 
     #endregion
