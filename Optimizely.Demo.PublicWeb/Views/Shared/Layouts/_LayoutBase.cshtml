@@ -23,13 +23,22 @@
     @Html.CanonicalLink()
     @Html.AlternateLinks()
 
-    @if (IsSectionDefined("Head"))
+    @if (IsSectionDefined("HeaderStyles"))
     {
-        @RenderSection("Head", false)
+        @RenderSection("HeaderStyles", false)
+    }
+    @if (IsSectionDefined("HeaderScripts"))
+    {
+        @RenderSection("HeaderScripts", false)
     }
 </head>
 <body>
     @await Html.RenderEPiServerQuickNavigatorAsync()
+
+    @if (IsSectionDefined("BodyScripts"))
+    {
+        @RenderSection("BodyScripts", false)
+    }
 
     @if (IsSectionDefined("Header"))
     {
@@ -45,6 +54,10 @@
         @RenderSection("Footer", false)
     }
 
-    @RenderSection("scripts", required: false)
+    @if (IsSectionDefined("FooterScripts"))
+    {
+        @RenderSection("FooterScripts", false)
+    }
+    @RenderSection("AdditionalScripts", required: false)
 </body>
 </html>

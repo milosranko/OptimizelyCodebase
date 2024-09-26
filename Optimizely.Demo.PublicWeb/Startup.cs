@@ -23,8 +23,10 @@ using Optimizely.Demo.ContentTypes.Blocks;
 using Optimizely.Demo.ContentTypes.Constants;
 using Optimizely.Demo.ContentTypes.Models.Media;
 using Optimizely.Demo.ContentTypes.Pages;
+using Optimizely.Demo.Core.Business.Caching;
 using Optimizely.Demo.Core.Business.Initialization;
 using Optimizely.Demo.Core.Business.Rendering;
+using Optimizely.Demo.Core.Services.SiteSettings;
 using Optimizely.Demo.PublicWeb.Api;
 using Optimizely.Demo.PublicWeb.Api.Services;
 using Optimizely.Demo.PublicWeb.Extensions;
@@ -74,11 +76,15 @@ public class Startup
             {
                 o.UseSqlServer(_configuration.GetConnectionString("EPiServerDB"));
                 o.Logging = LoggerMode.On;
+                o.IgnoredResourceExtensions = ["js", "css", "map", "png", "jpg", "jpeg", "webp", "gif", "ico", "swf", "woff", "svg"];
             })
             .AddOptimizelyNotFoundHandler(o => o.AutomaticRedirectsEnabled = true)
             .AddCors();
 
-        services.AddTransient<IApiService, ApiService>();
+        services
+            .AddTransient<IApiService, ApiService>()
+            .AddTransient<ICacheService, CacheService>()
+            .AddTransient<ISiteSettingsManager, SiteSettingsManager>();
 
         #region Optimizely DXP
 
@@ -144,11 +150,17 @@ public class Startup
             },
             builder: b =>
             {
+                #region Assets
+
                 b.UseAssets(ContentReference.SiteBlockFolder)
                 .WithFolder("Folder 1", l1 =>
                 l1
                 .WithFolder("Folder 1_1", l2 => l2.WithBlock<TeaserBlock>("Teaser 1", x => x.Heading = "Teaser Heading"))
                 .WithMedia<VideoFile>(x => x.Name = "Test video", ResourceHelpers.GetVideoStream(), ".mp4"));
+
+                #endregion
+
+                #region Pages
 
                 b.UsePages()
                 .WithStartPage<StartPage>(p =>
@@ -170,6 +182,12 @@ public class Startup
                 }, l1 =>
                 {
                     l1
+                    .WithPage<SiteSettingsPage>(p =>
+                    {
+                        p.SiteName = "DEMO Site 1";
+                        p.HeaderStyles = [new() { Name = "Test style", Value = "<style></style>" }];
+                        p.FooterScripts = [new() { Name = "Test script", Value = "<script>console.log('script test');</script>" }];
+                    })
                     .WithPage<ArticlePage>(p =>
                     {
                         p.Name = "Article1_1";
@@ -276,6 +294,8 @@ public class Startup
                     p.Name = "404";
                     p.Heading = "Page is NOT found!";
                 });
+
+                #endregion
             });
 
         app.UseCmsContentScaffolding(
@@ -298,6 +318,8 @@ public class Startup
             },
             builder: b =>
             {
+                #region Pages
+
                 b.UsePages()
                 .WithStartPage<StartPage>(p =>
                 {
@@ -412,6 +434,8 @@ public class Startup
                         });
                     });
                 });
+
+                #endregion
             });
 
         #endregion

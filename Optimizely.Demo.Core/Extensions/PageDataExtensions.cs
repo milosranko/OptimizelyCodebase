@@ -1,7 +1,7 @@
 ﻿using EPiServer;
 using EPiServer.Core;
 using EPiServer.Web.Routing;
-using Optimizely.Demo.ContentTypes.Models.Pages;
+using Optimizely.Demo.Core.Models.Pages;
 
 namespace Optimizely.Demo.ContentTypes.Extensions;
 

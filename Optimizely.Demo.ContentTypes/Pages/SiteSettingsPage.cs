@@ -2,22 +2,16 @@
 using EPiServer.DataAnnotations;
 using Optimizely.Demo.ContentTypes.Constants;
 using Optimizely.Demo.Core.Models.Pages;
-using System.ComponentModel.DataAnnotations;
 
 namespace Optimizely.Demo.ContentTypes.Pages;
 
 [ContentType(
-    GUID = "{005DBD8E-B8C6-4C0F-8066-44CFE01FD535}",
+    GUID = "{7A553D60-F2DF-4094-A650-8812F755EF6E}",
     GroupName = Globals.TabNames.Specialized)]
-public class NotFoundPage : NotFoundPageBase
+[AvailableContentTypes(Availability.None)]
+public class SiteSettingsPage : SiteSettingsPageBase
 {
     #region Content tab
-
-    [CultureSpecific]
-    [Display(
-        GroupName = SystemTabNames.Content,
-        Order = 100)]
-    public virtual string Heading { get; set; }
 
     #endregion
 }

@@ -1,4 +1,4 @@
-﻿namespace Optimizely.Demo.ContentTypes.Models.Pages.Interfaces;
+﻿namespace Optimizely.Demo.Core.Models.Pages.Interfaces;
 
 public interface IContainerPage
 { }

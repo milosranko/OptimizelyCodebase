@@ -3,7 +3,7 @@ using EPiServer.Core;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.Shell.ObjectEditing.EditorDescriptors;
 using Optimizely.Demo.ContentTypes.Models.Blocks.Base;
-using Optimizely.Demo.ContentTypes.Models.Pages;
+using Optimizely.Demo.Core.Models.Pages;
 
 namespace Optimizely.Demo.Core.Business.EditorDescriptors;
 

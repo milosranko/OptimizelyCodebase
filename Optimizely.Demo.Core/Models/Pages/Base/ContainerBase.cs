@@ -1,6 +1,6 @@
-﻿using Optimizely.Demo.ContentTypes.Models.Pages.Interfaces;
+﻿using Optimizely.Demo.Core.Models.Pages.Interfaces;
 
-namespace Optimizely.Demo.ContentTypes.Models.Pages.Base;
+namespace Optimizely.Demo.Core.Models.Pages.Base;
 
 public abstract class ContainerBase : PageBase, IContainerPage
 {

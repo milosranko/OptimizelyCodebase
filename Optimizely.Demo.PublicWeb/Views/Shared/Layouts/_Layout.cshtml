@@ -6,22 +6,38 @@
 
 @section Metadata
 {
-    @{ Html.RenderPartial("_MetaData", Model.Layout); }
+    @{ await Html.RenderPartialAsync("_MetaData", Model.Layout); }
 }
-
+@section HeaderStyles
+{
+    @{ await Html.RenderPartialAsync("_NameValueStringDefinition", Model.Layout.HeaderStyles); }
+}
+@section HeaderScripts
+{
+    @{ await Html.RenderPartialAsync("_NameValueStringDefinition", Model.Layout.HeaderScripts); }
+}
 @section Header
 {
-    @{ Html.RenderPartial("_Header", Model); }
+    @{ await Html.RenderPartialAsync("_Header", Model); }
 }
 
 @RenderBody()
 
-@section Footer
+@section BodyScripts
 {
-    @{ Html.RenderPartial("_Footer", Model); }
+    @{ await Html.RenderPartialAsync("_NameValueStringDefinition", Model.Layout.BodyScripts); }
 }
 
-@section Scripts
+@section Footer
+{
+    @{ await Html.RenderPartialAsync("_Footer", Model); }
+}
+
+@section FooterScripts
+{
+    @{ await Html.RenderPartialAsync("_NameValueStringDefinition", Model.Layout.FooterScripts); }
+}
+@section AdditionalScripts
 { 
-    @RenderSection("Scripts", false) 
+    @RenderSection("AdditionalScripts", false)
 }

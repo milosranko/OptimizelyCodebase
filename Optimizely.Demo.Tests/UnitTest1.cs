@@ -89,6 +89,12 @@ public class OptimizelyTests
                             }, l1 =>
                             {
                                 l1
+                                .WithPage<SiteSettingsPage>(p =>
+                                {
+                                    p.Name = "Site settings";
+                                    p.SiteName = "DEMO SITE";
+                                    p.FooterScripts = [new() { Name = "Test script", Value = "<script>console.log('script test')</script>" }];
+                                })
                                 .WithPage<ArticlePage>(p =>
                                 {
                                     p.Name = "Article1_1";

@@ -9,7 +9,7 @@ using EPiServer.Find.Framework;
 using EPiServer.Find.UnifiedSearch;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
-using Optimizely.Demo.ContentTypes.Models.Pages.Base;
+using Optimizely.Demo.Core.Models.Pages.Base;
 
 namespace Optimizely.Demo.Core.Business.Initialization;
 

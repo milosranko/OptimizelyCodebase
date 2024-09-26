@@ -9,7 +9,7 @@ namespace Optimizely.Demo.Core.Models.Blocks.Local;
 
 [ContentType(
     GUID = "{BBB5D413-D002-4124-B4A5-7770327B93E5}",
-    GroupName = Globals.GroupNames.Default,
+    GroupName = Globals.TabNames.Default,
     AvailableInEditMode = false)]
 public class LinkBlock : BlockBase
 {

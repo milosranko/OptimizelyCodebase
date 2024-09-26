@@ -6,7 +6,7 @@ using EPiServer.Scheduler;
 using EPiServer.Web.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
-using Optimizely.Demo.ContentTypes.Models.Pages.Base;
+using Optimizely.Demo.Core.Models.Pages.Base;
 using System.Globalization;
 using System.Text;
 using System.Xml;

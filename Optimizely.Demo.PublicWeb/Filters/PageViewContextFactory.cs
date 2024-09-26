@@ -1,25 +1,41 @@
 ﻿using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
-using Optimizely.Demo.ContentTypes.Models.Pages;
-using Optimizely.Demo.ContentTypes.Models.Pages.Base;
 using Optimizely.Demo.ContentTypes.Pages;
+using Optimizely.Demo.Core.Models.Pages;
+using Optimizely.Demo.Core.Models.Pages.Base;
 using Optimizely.Demo.Core.Models.ViewModels;
+using Optimizely.Demo.Core.Services.SiteSettings;
+using Optimizely.Demo.PublicWeb.Models;
 
 namespace Optimizely.Demo.Core.Business;
 
 [ServiceConfiguration]
 public class PageViewContextFactory
 {
+    private readonly ISiteSettingsManager _siteSettingsManager;
+
+    public PageViewContextFactory(ISiteSettingsManager siteSettingsManager)
+    {
+        _siteSettingsManager = siteSettingsManager;
+    }
+
     public LayoutModel CreateLayout(PageBase page)
     {
+        var siteSettings = _siteSettingsManager.CurrentSiteSettings<SiteSettingsPage, SiteSettingsModel>();
+        var siteName = siteSettings?.SiteName;
+
         return new LayoutModel
         {
             MetaData = CreateMetaData(page),
-            OpenGraph = CreateOpenGraph(page, "siteName"),
+            OpenGraph = CreateOpenGraph(page, siteName),
             Header = CreateHeader(),
             Footer = CreateFooter(),
-            PageTitle = page is StartPageBase ? "siteName" : page.PageName + " | " + "siteName",
-            SiteName = "siteName"
+            PageTitle = page is StartPageBase ? siteName : $"{page.PageName} | {siteName}",
+            SiteName = siteName,
+            BodyScripts = siteSettings?.BodyScripts,
+            HeaderStyles = siteSettings?.HeaderStyles,
+            HeaderScripts = siteSettings?.HeaderScripts,
+            FooterScripts = siteSettings?.FooterScripts
         };
     }
 
@@ -27,7 +43,7 @@ public class PageViewContextFactory
     {
         return new HeaderModelBase
         {
-            //LogoLink = 
+
         };
     }
 
@@ -43,7 +59,7 @@ public class PageViewContextFactory
         };
     }
 
-    private OpenGraphModel CreateOpenGraph(PageBase page, string siteName)
+    private OpenGraphModel CreateOpenGraph(PageBase page, string? siteName)
     {
         if (page is not PageBaseSeo seoPage)
             return new OpenGraphModel();
@@ -60,7 +76,7 @@ public class PageViewContextFactory
         {
             ImageUrl = imageUrl,
             PageUrl = UrlResolver.Current.GetUrl(seoPage.ContentLink, null, new VirtualPathArguments { ForceAbsolute = true }),
-            Title = seoPage is StartPage ? siteName : seoPage.Name,
+            Title = seoPage is StartPage && !string.IsNullOrEmpty(siteName) ? siteName : seoPage.Name,
             Description = seoPage.OpenGraphDescription
         };
     }

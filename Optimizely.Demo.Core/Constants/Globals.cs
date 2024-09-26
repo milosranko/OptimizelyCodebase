@@ -6,7 +6,7 @@ namespace Optimizely.Demo.ContentTypes.Constants;
 public class Globals
 {
     [GroupDefinitions]
-    public static class GroupNames
+    public static class TabNames
     {
         [Display(Name = "Default", Order = 10)]
         public const string Default = "Default";
@@ -14,19 +14,22 @@ public class Globals
         [Display(Name = "Metadata", Order = 20)]
         public const string MetaData = "Metadata";
 
-        [Display(Name = "Footer", Order = 30)]
+        [Display(Name = "Header", Order = 30)]
+        public const string Header = "Header";
+
+        [Display(Name = "Footer", Order = 40)]
         public const string Footer = "Footer";
 
-        [Display(Name = "Aside content", Order = 40)]
+        [Display(Name = "Aside content", Order = 50)]
         public const string AsideContent = "Aside content";
 
-        [Display(Name = "Site Settings", Order = 50)]
+        [Display(Name = "Site Settings", Order = 60)]
         public const string SiteSettings = "Site Settings";
 
-        [Display(Name = "SEO", Order = 60)]
+        [Display(Name = "SEO", Order = 70)]
         public const string SEO = "SEO";
 
-        [Display(Name = "Specialized", Order = 70)]
+        [Display(Name = "Specialized", Order = 80)]
         public const string Specialized = "Specialized";
     }
 

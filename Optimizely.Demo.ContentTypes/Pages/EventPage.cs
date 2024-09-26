@@ -6,14 +6,14 @@ using EPiServer.Web;
 using Optimizely.Demo.ContentTypes.Attributes.Validations;
 using Optimizely.Demo.ContentTypes.Blocks;
 using Optimizely.Demo.ContentTypes.Constants;
-using Optimizely.Demo.ContentTypes.Models.Pages.Base;
+using Optimizely.Demo.Core.Models.Pages.Base;
 using System.ComponentModel.DataAnnotations;
 
 namespace Optimizely.Demo.ContentTypes.Pages;
 
 [ContentType(
     GUID = "{69011830-6192-4EE5-A137-5FD4CE16919F}",
-    GroupName = Globals.GroupNames.Default)]
+    GroupName = Globals.TabNames.Default)]
 [AvailableContentTypes(
     Availability.None)]
 public class EventPage : PageBaseSeo

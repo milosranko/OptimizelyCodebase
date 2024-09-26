@@ -9,7 +9,7 @@ namespace Optimizely.Demo.Core.Models.Blocks.Local;
 [ContentType(
     AvailableInEditMode = false,
     GUID = "{5EF52798-35CA-45F5-9750-54F1CC4BDC91}",
-    GroupName = Globals.GroupNames.SEO,
+    GroupName = Globals.TabNames.SEO,
     Order = 9800)]
 public class SitemapSettingsBlock : BlockData
 {
@@ -54,13 +54,13 @@ public class ChangeFrequencyFactory : ISelectionFactory
     {
         var numberList = new List<SelectItem>
             {
-                new SelectItem {Value = "always", Text = "Always"},
-                new SelectItem {Value = "hourly", Text = "Hourly" },
-                new SelectItem {Value = "daily", Text = "Daily" },
-                new SelectItem {Value = "weekly", Text = "Weekly" },
-                new SelectItem {Value = "monthly", Text = "Monthly" },
-                new SelectItem {Value = "yearly", Text = "Yearly" },
-                new SelectItem {Value = "never", Text = "Never" }
+                new() {Value = "always", Text = "Always"},
+                new() {Value = "hourly", Text = "Hourly"},
+                new() {Value = "daily", Text = "Daily"},
+                new() {Value = "weekly", Text = "Weekly"},
+                new() {Value = "monthly", Text = "Monthly"},
+                new() {Value = "yearly", Text = "Yearly"},
+                new() {Value = "never", Text = "Never"}
             };
 
         return numberList;
@@ -73,11 +73,11 @@ public class PriorityFactory : ISelectionFactory
     {
         var numberList = new List<SelectItem>
             {
-                new SelectItem {Value = "0.0", Text = "0.0"},
-                new SelectItem {Value = "0.25", Text = "0.25" },
-                new SelectItem {Value = "0.5", Text = "0.5" },
-                new SelectItem {Value = "0.75", Text = "0.75" },
-                new SelectItem {Value = "1.0", Text = "1.0" }
+                new() {Value = "0.0", Text = "0.0"},
+                new() {Value = "0.25", Text = "0.25"},
+                new() {Value = "0.5", Text = "0.5"},
+                new() {Value = "0.75", Text = "0.75"},
+                new() {Value = "1.0", Text = "1.0"}
             };
 
         return numberList;

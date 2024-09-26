@@ -4,14 +4,14 @@ using EPiServer.DataAnnotations;
 using EPiServer.Framework.DataAnnotations;
 using EPiServer.Web;
 using Optimizely.Demo.ContentTypes.Constants;
-using Optimizely.Demo.ContentTypes.Models.Pages.Base;
+using Optimizely.Demo.Core.Models.Pages.Base;
 using System.ComponentModel.DataAnnotations;
 
 namespace Optimizely.Demo.ContentTypes.Pages;
 
 [ContentType(
     GUID = "{2A1D74A6-ECC9-4035-8267-735AD0554A88}",
-    GroupName = Globals.GroupNames.Default)]
+    GroupName = Globals.TabNames.Default)]
 [AvailableContentTypes(
     Availability.Specific,
     Include =

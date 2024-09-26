@@ -7,14 +7,14 @@ using EPiServer.Web;
 using Optimizely.Demo.ContentTypes.Attributes.Validations;
 using Optimizely.Demo.ContentTypes.Blocks;
 using Optimizely.Demo.ContentTypes.Constants;
-using Optimizely.Demo.ContentTypes.Models.Pages.Base;
+using Optimizely.Demo.Core.Models.Pages.Base;
 using System.ComponentModel.DataAnnotations;
 
 namespace Optimizely.Demo.ContentTypes.Pages;
 
 [ContentType(
     GUID = "{28C6817F-9819-4114-9E04-CEB03FD919F7}",
-    GroupName = Globals.GroupNames.Default)]
+    GroupName = Globals.TabNames.Default)]
 [AvailableContentTypes(
     Availability.Specific,
     Include =

@@ -1,0 +1,11 @@
+﻿@using Optimizely.Demo.Core.Models.Definitions
+@model IEnumerable<NameValueStringDefinition>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        @Html.Raw($"<!--{item.Name}-->")
+        @Html.Raw(item.Value)
+    }
+}

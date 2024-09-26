@@ -1,9 +1,9 @@
 ﻿using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using Optimizely.Demo.ContentTypes.Attributes;
-using Optimizely.Demo.ContentTypes.Models.Pages.Base;
+using Optimizely.Demo.Core.Models.Pages.Base;
 
-namespace Optimizely.Demo.ContentTypes.Models.Pages;
+namespace Optimizely.Demo.Core.Models.Pages;
 
 [AvailableContentTypes(Availability.None)]
 [SiteImageUrl("NotFoundPage.png")]

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Optimizely.Demo.ContentTypes.Models.Pages.Base;
 using Optimizely.Demo.Core.Business;
+using Optimizely.Demo.Core.Models.Pages.Base;
 using Optimizely.Demo.Core.Models.ViewModels;
 
 namespace Optimizely.Demo.PublicWeb.Filters;
