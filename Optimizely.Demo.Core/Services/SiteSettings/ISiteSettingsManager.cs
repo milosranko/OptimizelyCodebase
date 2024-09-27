@@ -11,4 +11,6 @@ public interface ISiteSettingsManager
 
     T? SpecificSiteSettings<T>(ContentReference startPageRef)
         where T : SiteSettingsPageBase;
+
+    void RemoveFromCache(int contentId);
 }

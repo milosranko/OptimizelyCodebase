@@ -35,6 +35,11 @@ public class SiteSettingsManager : ISiteSettingsManager
         return default;
     }
 
+    public void RemoveFromCache(int contentId)
+    {
+        _cacheService.Remove($"{CacheKeyPrefix}{contentId}");
+    }
+
     private TOutputModel GetSiteSettings<TSiteSettingsModel, TOutputModel>(ContentReference siteStartPageRef)
         where TSiteSettingsModel : SiteSettingsPageBase
         where TOutputModel : class, new()

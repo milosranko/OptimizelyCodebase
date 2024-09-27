@@ -3,8 +3,10 @@ using EPiServer.Core;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
+using Optimizely.Demo.Core.Models.Pages;
+using Optimizely.Demo.Core.Services.SiteSettings;
 
-namespace Optimizely.Demo.PublicWeb.Business.Initialization;
+namespace Optimizely.Demo.Core.Business.Initialization;
 
 [InitializableModule]
 public class EventsInitialization : IInitializableModule
@@ -16,7 +18,6 @@ public class EventsInitialization : IInitializableModule
         if (!_eventsAttached)
         {
             // Attach event handler to when a page has been created
-            ServiceLocator.Current.GetInstance<IContentEvents>().PublishingContent += PublishingContent;
             ServiceLocator.Current.GetInstance<IContentEvents>().PublishedContent += PublishedContent;
 
             _eventsAttached = true;
@@ -28,18 +29,21 @@ public class EventsInitialization : IInitializableModule
         if (_eventsAttached)
         {
             // Attach event handler to when a page has been created
-            ServiceLocator.Current.GetInstance<IContentEvents>().PublishingContent -= PublishingContent;
             ServiceLocator.Current.GetInstance<IContentEvents>().PublishedContent -= PublishedContent;
 
             _eventsAttached = false;
         }
     }
 
-    private void PublishingContent(object? sender, ContentEventArgs e)
-    {
-    }
-
     private void PublishedContent(object? sender, ContentEventArgs e)
     {
+        #region SiteSettingsPageBase events
+
+        if (e.Content is SiteSettingsPageBase siteSettings)
+        {
+            ServiceLocator.Current.GetInstance<ISiteSettingsManager>().RemoveFromCache(siteSettings.ParentLink.ID);
+        }
+
+        #endregion
     }
 }

@@ -85,6 +85,9 @@ public class CacheService : ICacheService
     /// <param name="key"></param>
     public void Remove(string key)
     {
+        if (!Keys.Contains(key))
+            return;
+
         CacheManager.Remove(key);
         Keys.Remove(key);
     }

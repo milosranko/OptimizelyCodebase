@@ -60,10 +60,6 @@ public class Startup
                 .Configure<ClientResourceOptions>(uiOptions => uiOptions.Debug = true);
         }
 
-        //If added before Optimizely it will remain the only registration
-        //Use TryAdd if you want to ensure just one registration
-        //services.AddSingleton<ContentAreaRenderer, CustomContentAreaRenderer>();
-        //services.AddTransient<IContentQuery, CustomGetChildrenQuery>();
         services
             .AddCmsAspNetIdentity<ApplicationUser>()
             .AddCms()
@@ -130,6 +126,8 @@ public class Startup
 
         Console.WriteLine("Content Scaffolding...");
 
+        #region Site 1 SR
+
         app.UseCmsContentScaffolding(
             builderOptions: o =>
             {
@@ -145,7 +143,7 @@ public class Startup
                 };
                 o.Users =
                 [
-                    new("Site1User", "Site1User@test.com", "Test@1234", ["Site1Editors"])
+                    new("Site1User", "Test@1234", "Site1User@test.com", ["Site1Editors"])
                 ];
             },
             builder: b =>
@@ -184,6 +182,7 @@ public class Startup
                     l1
                     .WithPage<SiteSettingsPage>(p =>
                     {
+                        p.Name = "Site 1 settings";
                         p.SiteName = "DEMO Site 1";
                         p.HeaderStyles = [new() { Name = "Test style", Value = "<style></style>" }];
                         p.FooterScripts = [new() { Name = "Test script", Value = "<script>console.log('script test');</script>" }];
@@ -298,6 +297,10 @@ public class Startup
                 #endregion
             });
 
+        #endregion
+
+        #region Site 2 EN
+
         app.UseCmsContentScaffolding(
             builderOptions: o =>
             {
@@ -313,11 +316,21 @@ public class Startup
                 };
                 o.Users =
                 [
-                    new("Site2User", "Site2User@test.com", "Test@1234", ["Site2Editors"])
+                    new("Site2User", "Test@1234", "Site2User@test.com", ["Site2Editors"])
                 ];
             },
             builder: b =>
             {
+                #region Assets
+
+                b.UseAssets(ContentReference.SiteBlockFolder)
+                .WithFolder("Folder 1", l1 =>
+                l1
+                .WithFolder("Folder 1_1", l2 => l2.WithBlock<TeaserBlock>("Teaser 1", x => x.Heading = "Teaser Heading"))
+                .WithMedia<VideoFile>(x => x.Name = "Test video", ResourceHelpers.GetVideoStream(), ".mp4"));
+
+                #endregion
+
                 #region Pages
 
                 b.UsePages()
@@ -437,6 +450,8 @@ public class Startup
 
                 #endregion
             });
+
+        #endregion
 
         #endregion
 
