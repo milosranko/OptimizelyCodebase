@@ -1,6 +1,8 @@
-﻿namespace Optimizely.Demo.Core.Models.Pages.Interfaces;
+﻿using EPiServer.Core;
 
-public interface ISearchable
+namespace Optimizely.Demo.Core.Models.Pages.Interfaces;
+
+public interface ISearchable : IContentData
 {
     bool ExcludeFromSiteSearchResults { get; set; }
 }
