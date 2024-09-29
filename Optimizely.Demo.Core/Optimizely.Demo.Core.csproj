@@ -18,6 +18,7 @@
   <ItemGroup>
     <PackageReference Include="EPiServer.CMS" Version="12.31.2" />
     <PackageReference Include="EPiServer.Find.Cms" Version="16.3.0" />
+    <PackageReference Include="Geta.NotFoundHandler.Optimizely" Version="5.0.8" />
     <PackageReference Include="Mapster" Version="7.4.0" />
   </ItemGroup>
 

@@ -16,7 +16,6 @@
     <PackageReference Include="CmsContentScaffolding.Optimizely" Version="1.8.2" />
     <PackageReference Include="CmsContentScaffolding.Shared.Resources" Version="1.3.2" />
     <PackageReference Include="EPiServer.CMS" Version="12.31.2" />
-    <PackageReference Include="Geta.NotFoundHandler.Optimizely" Version="5.0.8" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.2" />
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
