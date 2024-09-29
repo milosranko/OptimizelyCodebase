@@ -31,8 +31,8 @@ using Optimizely.Demo.PublicWeb.Api;
 using Optimizely.Demo.PublicWeb.Api.Services;
 using Optimizely.Demo.PublicWeb.Extensions;
 using Optimizely.Demo.PublicWeb.Filters;
+using Stott.Optimizely.RobotsHandler.Configuration;
 using System.Globalization;
-using System.Net;
 
 namespace Optimizely.Demo.PublicWeb;
 
@@ -68,12 +68,15 @@ public class Startup
             .AddEmbeddedLocalization<Startup>()
             .AddCustomTinyMceConfiguration()
             .AddCmsContentScaffolding()
-            .AddNotFoundHandler(o =>
+            .AddRobotsHandler()
+            .AddNotFoundHandler(
+            o =>
             {
                 o.UseSqlServer(_configuration.GetConnectionString("EPiServerDB"));
                 o.Logging = LoggerMode.On;
                 o.IgnoredResourceExtensions = ["js", "css", "map", "png", "jpg", "jpeg", "webp", "gif", "ico", "swf", "woff", "svg"];
-            })
+            },
+            p => p.RequireRole("WebAdmins"))
             .AddOptimizelyNotFoundHandler(o => o.AutomaticRedirectsEnabled = true)
             .AddCors();
 
@@ -457,28 +460,29 @@ public class Startup
 
         #region HTTP 500 and 404 handlers
 
-        //HTTP 500 handler
-        app.UseGlobalExceptionHandler(env.IsDevelopment(), "/500.html");
-
-        //HTTP 404 handler
-        app.Use(async (context, next) =>
-        {
-            await next();
-
-            if (context.Response.StatusCode == (int)HttpStatusCode.NotFound && !context.Request.Path.StartsWithSegments("/api"))
-            {
-                context.Request.Path = "/404";
-                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-                await next();
-            }
-        });
-
         #region Geta NotFound handler
 
+        app.UseStatusCodePagesWithReExecute("/{0}");
         app.UseNotFoundHandler();
         app.UseOptimizelyNotFoundHandler();
 
         #endregion
+
+        //HTTP 500 handler
+        app.UseGlobalExceptionHandler(env.IsDevelopment(), "/500.html");
+
+        //HTTP 404 handler
+        //app.Use(async (context, next) =>
+        //{
+        //    await next();
+
+        //    if (context.Response.StatusCode == (int)HttpStatusCode.NotFound && !context.Request.Path.StartsWithSegments("/api"))
+        //    {
+        //        context.Request.Path = "/404";
+        //        context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+        //        await next();
+        //    }
+        //});
 
         #endregion
 
