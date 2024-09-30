@@ -49,11 +49,11 @@ public class ArticlePage : PageBaseSeo
     [Display(
         GroupName = SystemTabNames.Content,
         Order = 40)]
-    [AllowedTypesForXhtml(new[]
-    {
+    [AllowedTypesForXhtml(
+    [
         typeof(TeaserBlock),
         typeof(MediaData)
-    })]
+    ])]
     public virtual XhtmlString MainContent { get; set; }
 
     [CultureSpecific]

@@ -2,7 +2,7 @@
 
 namespace Optimizely.Demo.Core.Models.Pages.Interfaces;
 
-public interface ISearchable : IContentData
+public interface ISearchable : IContent
 {
     bool ExcludeFromSiteSearchResults { get; set; }
 }

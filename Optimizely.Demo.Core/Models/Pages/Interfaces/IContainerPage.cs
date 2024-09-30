@@ -1,4 +1,6 @@
-﻿namespace Optimizely.Demo.Core.Models.Pages.Interfaces;
+﻿using EPiServer.Core;
 
-public interface IContainerPage
+namespace Optimizely.Demo.Core.Models.Pages.Interfaces;
+
+public interface IContainerPage : IContent
 { }

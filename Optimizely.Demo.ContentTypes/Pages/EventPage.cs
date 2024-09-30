@@ -14,8 +14,7 @@ namespace Optimizely.Demo.ContentTypes.Pages;
 [ContentType(
     GUID = "{69011830-6192-4EE5-A137-5FD4CE16919F}",
     GroupName = Globals.TabNames.Default)]
-[AvailableContentTypes(
-    Availability.None)]
+[AvailableContentTypes(Availability.None)]
 public class EventPage : PageBaseSeo
 {
     #region Content tab
@@ -44,16 +43,16 @@ public class EventPage : PageBaseSeo
     [Display(
         GroupName = SystemTabNames.Content,
         Order = 40)]
-    [AllowedTypesForXhtml(new[] { typeof(TeaserBlock) })]
+    [AllowedTypesForXhtml([typeof(TeaserBlock)])]
     public virtual XhtmlString MainContent { get; set; }
 
     [CultureSpecific]
     [Display(
         GroupName = SystemTabNames.Content,
         Order = 50)]
-    [AllowedTypes(new[] {
-            typeof(TeaserBlock)
-        })]
+    [AllowedTypes([
+        typeof(TeaserBlock)
+    ])]
     public virtual ContentArea MainContentArea { get; set; }
 
     #endregion

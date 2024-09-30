@@ -16,5 +16,4 @@ namespace Optimizely.Demo.Core.Models.Pages;
     ])]
 public abstract class StartPageBase : PageBaseSeo
 {
-
 }

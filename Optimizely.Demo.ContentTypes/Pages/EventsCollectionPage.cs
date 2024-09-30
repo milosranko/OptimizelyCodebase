@@ -37,7 +37,7 @@ public class EventsCollectionPage : PageBaseSeo
 
     [CultureSpecific]
     [Display(
-    GroupName = SystemTabNames.Content,
+        GroupName = SystemTabNames.Content,
         Order = 30)]
     [UIHint(UIHint.Textarea, PresentationLayer.Edit)]
     public virtual string LeadText { get; set; }
