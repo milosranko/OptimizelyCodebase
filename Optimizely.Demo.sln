@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optimizely.Demo.Core", "Opt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optimizely.Demo.ContentTypes", "Optimizely.Demo.ContentTypes\Optimizely.Demo.ContentTypes.csproj", "{F7AC8E44-5C78-427C-86B5-3A204BEC231E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optimizely.Demo.Integrations", "Optimizely.Demo.Integrations\Optimizely.Demo.Integrations.csproj", "{4EB0B5CA-66EF-4392-AE57-41EE2E47EC12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optimizely.Demo.Integrations.Abstractions", "Optimizely.Demo.Integrations.Abstractions\Optimizely.Demo.Integrations.Abstractions.csproj", "{93D9280D-398B-486E-ABC1-E33C0CEF7B8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{F7AC8E44-5C78-427C-86B5-3A204BEC231E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7AC8E44-5C78-427C-86B5-3A204BEC231E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7AC8E44-5C78-427C-86B5-3A204BEC231E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB0B5CA-66EF-4392-AE57-41EE2E47EC12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB0B5CA-66EF-4392-AE57-41EE2E47EC12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB0B5CA-66EF-4392-AE57-41EE2E47EC12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB0B5CA-66EF-4392-AE57-41EE2E47EC12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93D9280D-398B-486E-ABC1-E33C0CEF7B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93D9280D-398B-486E-ABC1-E33C0CEF7B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93D9280D-398B-486E-ABC1-E33C0CEF7B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93D9280D-398B-486E-ABC1-E33C0CEF7B8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
