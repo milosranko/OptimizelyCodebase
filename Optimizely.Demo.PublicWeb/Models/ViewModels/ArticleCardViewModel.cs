@@ -2,8 +2,8 @@
 
 public record ArticleCardViewModel
 {
-	public string Heading { get; set; }
-	public string LeadText { get; set; }
-	public XhtmlString MainBody { get; set; }
-	public string ImageUrl { get; set; }
+    public string Heading { get; init; }
+    public string LeadText { get; init; }
+    public XhtmlString MainBody { get; init; }
+    public string ImageUrl { get; init; }
 }

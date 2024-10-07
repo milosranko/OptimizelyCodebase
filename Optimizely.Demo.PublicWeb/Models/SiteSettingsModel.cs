@@ -4,10 +4,10 @@ namespace Optimizely.Demo.PublicWeb.Models;
 
 public record SiteSettingsModel
 {
-    public string? SiteName { get; set; }
-    public IEnumerable<NameValueStringDefinition>? HeaderStyles { get; set; }
-    public IEnumerable<NameValueStringDefinition>? HeaderScripts { get; set; }
-    public IEnumerable<NameValueStringDefinition>? BodyScripts { get; set; }
-    public IEnumerable<NameValueStringDefinition>? FooterStyles { get; set; }
-    public IEnumerable<NameValueStringDefinition>? FooterScripts { get; set; }
+    public string? SiteName { get; init; }
+    public IEnumerable<NameValueStringDefinition>? HeaderStyles { get; init; }
+    public IEnumerable<NameValueStringDefinition>? HeaderScripts { get; init; }
+    public IEnumerable<NameValueStringDefinition>? BodyScripts { get; init; }
+    public IEnumerable<NameValueStringDefinition>? FooterStyles { get; init; }
+    public IEnumerable<NameValueStringDefinition>? FooterScripts { get; init; }
 }

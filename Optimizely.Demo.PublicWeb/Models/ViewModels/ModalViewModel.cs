@@ -2,9 +2,9 @@
 
 public record ModalViewModel
 {
-	public Type Caller { get; set; }
-	public string Heading { get; set; }
-	public string LeadText { get; set; }
-	public XhtmlString MainBody { get; set; }
-	public ContentReference Image { get; set; }
+    public Type Caller { get; init; }
+    public string Heading { get; init; }
+    public string LeadText { get; init; }
+    public XhtmlString MainBody { get; init; }
+    public ContentReference Image { get; init; }
 }
