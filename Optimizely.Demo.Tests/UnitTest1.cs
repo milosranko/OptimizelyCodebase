@@ -20,7 +20,9 @@ using Microsoft.Extensions.Hosting;
 using Optimizely.Demo.ContentTypes.Blocks;
 using Optimizely.Demo.ContentTypes.Models.Media;
 using Optimizely.Demo.ContentTypes.Pages;
+using Optimizely.Demo.Core.Business.Caching;
 using Optimizely.Demo.Core.Models.ViewModels;
+using Optimizely.Demo.Core.Services.SiteSettings;
 using Optimizely.Demo.PublicWeb.Controllers;
 using System.Globalization;
 
@@ -51,7 +53,10 @@ public class OptimizelyTests
                 .AddSingleton<IHttpContextFactory, DefaultHttpContextFactory>()
                 .AddCmsAspNetIdentity<ApplicationUser>()
                 .AddCms()
-                .AddCmsContentScaffolding();
+                .AddFind()
+                .AddCmsContentScaffolding()
+                .AddTransient<ICacheService, CacheService>()
+                .AddTransient<ISiteSettingsManager, SiteSettingsManager>();
 
                 Globals.Services = services.BuildServiceProvider();
 
